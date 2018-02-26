@@ -1,0 +1,17 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "smartcontract front ",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest test"
+  },
+  "keywords": [
+    "front"
+  ],
+  "author": "kouichiUme",
+  "license": "MIT",
+  "dependencies": {
+    "drizzle-react": "^1.0.1"
+  }
+}
