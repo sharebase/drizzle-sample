@@ -4,7 +4,10 @@
   "description": "smartcontract front ",
   "main": "index.js",
   "scripts": {
-    "test": "jest test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "keywords": [
     "front"
@@ -12,6 +15,13 @@
   "author": "kouichiUme",
   "license": "MIT",
   "dependencies": {
-    "drizzle-react": "^1.0.1"
+    "drizzle-react": "^1.0.1",
+    "drizzle-react-components": "^1.0.1",
+    "react-scripts": "^1.1.1"
+  },
+  "devDependencies": {
+    "react": "^16.2.0",
+    "react-script": "^2.0.5",
+    "webpack": "^4.1.1"
   }
 }
