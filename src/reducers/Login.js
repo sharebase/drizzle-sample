@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
             return action.payload.error ? {
                 ...state, error: true
             } : {
-                    categoryId: action.payload.categoryId,
+                    categoryId: getLoginId(action.payload.response),
                     error: false,
                     loginId: getLoginId(action.payload.response)
                 }

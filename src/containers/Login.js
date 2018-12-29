@@ -6,7 +6,7 @@ import * as actions from '../actions/Login';
 // Reducerを定義後に実装します
 const mapStateToProps = (state, ownProps) => ({
   categoryId: ownProps.categoryId,
-  loginId: ownProps .loginId
+  loginId: ownProps.loginId
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
   },
   onUpdate (categoryId) {
     dispatch(actions.fetchLogin(categoryId));
+    
   }
 });
 
