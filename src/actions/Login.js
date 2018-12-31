@@ -2,7 +2,7 @@
 import fetchJsonp from 'fetch-jsonp';
 import qs from 'qs';
 
-const API_URL = '/sharecoin-web/';
+const API_URL = 'http://localhost:8080/sharecoin-web/';
 const APP_ID = 'x';
 
 // リクエスト開始
@@ -13,20 +13,25 @@ const startRequest = categoryId => ({
 // レスポンス受信
 const receiveData = (categoryId, error, response) => ({
   type: 'RECEIVE_DATA',
-  payload: { categoryId, error, response },
+  payload: Object.assign({ categoryId, error, response }),
 });
 // リクエスト完了
-const finishRequest =( categoryId ,data)=> ({
+const finishRequest = (categoryId, data) => ({
   type: 'FINISH_REQUEST',
-  payload: { categoryId,data },
+  payload: {
+    categoryId, data,
+    'error': true
+  },
 });
 
 // ランキングを取得する
 export const fetchLogin = categoryId => {
   // redux-thunkを使った非同期処理
-  return async (dispatch,getState) => {
+  return async (dispatch, getState) => {
     dispatch(startRequest(categoryId));
-
+    console.log(dispatch);
+    console.log('getstate');
+    console.log(getState());
     var hogehoge = getState().hogehoge;
     const queryString = qs.stringify({
       appid: APP_ID,
@@ -34,9 +39,10 @@ export const fetchLogin = categoryId => {
     });
     var data4f;
     try {
-      const responce = await fetch(`${API_URL}?${queryString}`);
-      const data = await responce.json();
-      data4f =data;
+      // const responce = await fetch(`${API_URL}?${queryString}`);
+      // const data = {await responce.json();}
+      const data = "";
+      data4f = "";
       console.log(data)
 
       dispatch(receiveData(categoryId, null, data));
@@ -45,6 +51,6 @@ export const fetchLogin = categoryId => {
       console.log(err)
       dispatch(receiveData(categoryId, err));
     }
-    dispatch(finishRequest(categoryId,data4f));
+    dispatch(finishRequest("finish", data4f));
   };
 };
