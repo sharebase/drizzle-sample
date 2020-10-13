@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './scss/sharecoin.scss'
 
 export default class PrintItem extends React.Component {
 
@@ -13,8 +14,8 @@ export default class PrintItem extends React.Component {
     render(props) {
         return (
             <React.Fragment>
-                <div> kategori : {this.props.categoryId}</div>
-                
+                <div className="test">  kategori : {this.props.categoryId}</div>
+
             </React.Fragment>
         )
     }
